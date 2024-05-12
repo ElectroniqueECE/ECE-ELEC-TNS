@@ -9,7 +9,7 @@ void CircularBuffer() {
   int adcBufferIndex = 0;
   for(int i=0; i < OUTPUT_SIZE; i++) {
     while((ADC->ADC_ISR & 0x80)==0); // attente de la fin de la conversion
-    tempoBuffer[adcBufferIndex] = ADC->ADC_CDR[7]; // sauvegarde du signal Fe = 32Khz dans le buffer 
+    tempoBuffer[adcBufferIndex] = ADC->ADC_CDR[7]; // sauvegarde du signal dans le buffer 
 
     adcBufferIndex++;   // incrementation de l'index du buffer cirulaire
     uint16_t sumIndex = adcBufferIndex; // update de l'index pour le bon indexage des valeurs en fonction des coeffs 
